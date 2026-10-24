@@ -80,9 +80,7 @@ If you'd rather have the site create the opportunity itself, set `GHL_PIPELINE_I
 
 **d. Calendar on the thank-you page**
 
-1. Go to Calendars and open your "Free Water Test" calendar.
-2. Click Share or Embed and copy the calendar ID. It's the code at the end of the booking link: `.../widget/booking/THIS_PART`.
-3. Open `thank-you/index.html`, find `PASTE_CALENDAR_ID`, and replace it with that ID.
+Connected: the "Free Water Consultation" calendar (`https://links.thelegacylaunchpad.com/widget/bookings/free-water-consultation-7512`). It is set on `data-calendar-url` in `thank-you/index.html`, and the visitor's name, phone and email are prefilled. To switch calendars, paste the new booking link there.
 
 **e. Reviews widget**
 

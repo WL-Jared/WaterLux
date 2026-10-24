@@ -216,14 +216,15 @@
   /* Thank-you page: load the GHL booking calendar, prefilled with what they just typed */
   var cal = document.getElementById('ghl-calendar');
   if (cal) {
-    var calId = cal.getAttribute('data-calendar-id');
+    var calUrl = cal.getAttribute('data-calendar-url') || '';
+    var calId = cal.getAttribute('data-calendar-id') || '';
     var lead = ss ? readJSON(ss, 'wl_lead') : null;
     var nameEl = document.querySelector('[data-lead-name]');
     if (lead && lead.name && nameEl) nameEl.textContent = ', ' + lead.name.split(' ')[0];
-    if (!calId || calId.indexOf('PASTE') === 0) {
+    if (!/^https:\/\//.test(calUrl) && (!calId || calId.indexOf('PASTE') === 0)) {
       cal.innerHTML = '<div class="ph" style="min-height:600px">Booking calendar goes here<small>Add your GHL calendar ID in thank-you/index.html (see README)</small></div>';
     } else {
-      var src = 'https://api.leadconnectorhq.com/widget/booking/' + encodeURIComponent(calId);
+      var src = /^https:\/\//.test(calUrl) ? calUrl.split('?')[0] : 'https://api.leadconnectorhq.com/widget/booking/' + encodeURIComponent(calId);
       if (lead) {
         var parts = (lead.name || '').trim().split(/\s+/);
         var q = new URLSearchParams();
@@ -235,9 +236,9 @@
       }
       var iframe = document.createElement('iframe');
       iframe.src = src;
-      iframe.title = 'Book your free water test';
+      iframe.title = 'Book your free water consultation';
       iframe.setAttribute('scrolling', 'no');
-      iframe.id = calId + '_wl';
+      iframe.id = (calId || calUrl.split('/').pop()) + '_wl';
       cal.innerHTML = '';
       cal.appendChild(iframe);
       var s = document.createElement('script');
