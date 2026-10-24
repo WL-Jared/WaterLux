@@ -1,0 +1,6 @@
+{
+  "name": "waterlux-website",
+  "private": true,
+  "description": "WaterLux Installations website. Static HTML plus one Vercel function that sends leads to GoHighLevel.",
+  "engines": { "node": ">=18" }
+}
