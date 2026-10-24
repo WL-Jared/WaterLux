@@ -129,6 +129,7 @@ module.exports = async function handler(req, res) {
   const email = clean(b.email, 150).toLowerCase();
   if (!name) return res.status(400).json({ error: 'Please add your name.' });
   if (!phone) return res.status(400).json({ error: 'Please enter a 10 digit phone number.' });
+  if (!email) return res.status(400).json({ error: 'Please add your email.' });
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return res.status(400).json({ error: 'Please check your email address.' });
 
   const formKey = slug(b.form) || 'lead';
