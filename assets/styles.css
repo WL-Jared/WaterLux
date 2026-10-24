@@ -541,3 +541,8 @@ fieldset.field{border:0}
 .specs th,.specs td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
 .specs th{width:40%;background:var(--ice);color:var(--navy);font-weight:700}
 .specs tr:last-child th,.specs tr:last-child td{border-bottom:0}
+/* Russ photo */
+.avatar{object-fit:cover;background:var(--ice)}
+.russ-photo{margin:0;text-align:center}
+.russ-photo img{width:100%;max-width:400px;height:auto;mix-blend-mode:multiply;display:inline-block}
+@media (max-width:760px){.russ-photo img{max-width:300px}}
