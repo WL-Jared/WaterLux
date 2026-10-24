@@ -592,3 +592,7 @@ img{height:auto}
 .email-fix b{color:var(--blue)}
 .seg span{padding:11px 6px}
 @media(max-width:420px){.seg span{font-size:13.5px;padding:11px 3px;white-space:nowrap}}
+.pgrid-one{grid-template-columns:minmax(0,420px);justify-content:center}
+.pcard-img img.is-photo{object-position:center 35%}
+.pgrid-one .pcard-img{height:270px}
+.pcard-img img.is-photo{object-position:center 15%}

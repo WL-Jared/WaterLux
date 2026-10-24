@@ -25,17 +25,20 @@
   };
 
   var SYMPTOMS = {
-    spots:      { label: 'Spots on dishes or glasses', systems: ['softener'], why: 'Spots and cloudy film are left behind by hard minerals.' },
-    scale:      { label: 'Scale on faucets, showerheads or fixtures', systems: ['softener'], why: 'White, crusty scale is hardness (calcium and magnesium) building up.' },
-    chlorine:   { label: 'Chlorine or bleach smell', systems: ['carbon'], why: 'That pool smell is the chlorine or chloramines used to treat city water. Carbon filters it out.' },
-    egg:        { label: 'Rotten egg smell', systems: ['air'], why: 'A rotten egg smell is hydrogen sulfide gas, most common in well water.' },
-    odor:       { label: 'Another unusual odor (musty, earthy, metallic)', systems: ['carbon', 'air'], why: 'Musty and earthy odors come from compounds that carbon filters out. Metallic odors come from iron.' },
-    orange:     { label: 'Orange or reddish-brown stains in sinks or toilets', systems: ['air'], why: 'Orange and rust-colored stains are a classic sign of iron in your water.' },
-    black:      { label: 'Black or dark gray stains', systems: ['air'], why: 'Dark stains are manganese, which often shows up alongside iron.' },
+    spots:      { label: 'Spots on dishes or glasses', systems: ['complete'], why: 'Spots and cloudy film are left behind by hard minerals.' },
+    scale:      { label: 'Scale on faucets, showerheads or fixtures', systems: ['complete'], why: 'White, crusty scale is hardness (calcium and magnesium) building up.' },
+    chlorine:   { label: 'Chlorine or bleach smell', systems: ['complete'], why: 'That pool smell is the chlorine or chloramines used to treat city water. The carbon in WaterLux Complete filters it out.' },
+    egg:        { label: 'Rotten egg smell', systems: [], why: 'A rotten egg smell is hydrogen sulfide gas, most common in well water.',
+                  next: "Russ will test for sulfur at your free consultation and recommend the right setup for your home." },
+    odor:       { label: 'Another unusual odor (musty, earthy, metallic)', systems: ['complete'], why: 'Musty and earthy odors come from compounds that carbon filters out. Metallic odors come from iron.' },
+    orange:     { label: 'Orange or reddish-brown stains in sinks or toilets', systems: [], why: 'Orange and rust-colored stains are a classic sign of iron in your water.',
+                  next: "Russ will test for iron and manganese at your free consultation and recommend the right setup for your home." },
+    black:      { label: 'Black or dark gray stains', systems: [], why: 'Dark stains are manganese, which often shows up alongside iron.',
+                  next: "Russ will test for iron and manganese at your free consultation and recommend the right setup for your home." },
     bluegreen:  { label: 'Blue-green stains', systems: [], why: 'Blue-green stains come from acidic water reacting with copper pipes.',
                   next: "We'll test your water's pH at your free test. If your pipes are affected, a plumber may also need to take a look." },
-    dryskin:    { label: 'Extremely dry skin or hair', systems: ['softener', 'carbon'], why: 'Hard minerals and chlorine in your water are what leave skin and hair feeling dry.' },
-    taste:      { label: 'Bad taste (bleach, metallic, salty or earthy)', systems: ['ro', 'carbon'], why: 'WaterLux RO Pro50 gives you the cleanest-tasting drinking water, and carbon improves taste at every tap.' }
+    dryskin:    { label: 'Extremely dry skin or hair', systems: ['complete'], why: 'Hard minerals and chlorine in your water are what leave skin and hair feeling dry.' },
+    taste:      { label: 'Bad taste (bleach, metallic, salty or earthy)', systems: ['ro', 'complete'], why: 'WaterLux RO Pro50 gives you the cleanest-tasting drinking water, and WaterLux Complete improves taste at every tap.' }
   };
 
   var ORDER = ['spots', 'scale', 'chlorine', 'egg', 'odor', 'orange', 'black', 'bluegreen', 'dryskin', 'taste'];
@@ -57,8 +60,7 @@
     });
     /* Water source nudges */
     if (source === 'well') {
-      score.uv = (score.uv || 0) + 1;
-      (reasons.uv = reasons.uv || []).push('Private well (a finishing stage for well water)');
+      nexts.push('Well water is different in every home. Russ will test yours at your free consultation and recommend the right setup.');
     }
     if (source === 'city' && score.air && !picked.some(function (p) { return p === 'egg' || p === 'orange' || p === 'black'; })) {
       delete score.air;
