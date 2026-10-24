@@ -119,7 +119,7 @@
         html += '<div class="wc-next"><b>Good to know</b>' + r.nexts.filter(function (v, i, a) { return a.indexOf(v) === i; }).map(function (n) { return '<p>' + n + '</p>'; }).join('') + '</div>';
       }
       html += '<p class="note">Only a test at your sink tells you for sure. Booking takes about 30 seconds, and your free consultation goes at your pace.</p>' +
-        '<div class="btn-row" style="margin-top:14px"><a class="btn btn-blue" href="' + esc(book) + '">Book My Free Water Test</a><button type="button" class="btn btn-line" data-wc-restart>Start Over</button></div>';
+        '<div class="btn-row" style="margin-top:14px"><a class="btn btn-blue" href="' + esc(book) + '">Book My Free Water Consultation</a><button type="button" class="btn btn-line" data-wc-restart>Start Over</button></div>';
       result.innerHTML = html;
       result.hidden = false;
       widget.querySelector('[data-wc-form]').hidden = true;
