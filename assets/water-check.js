@@ -21,7 +21,7 @@
     carbon:   { name: 'WaterLux Carbon', short: 'Whole-home filtration for chlorine taste and smell', url: '/systems/carbon-tower/' },
     air:      { name: 'Air Injection System', short: 'Removes iron, manganese and rotten egg smell', url: '/systems/air-injection/' },
     uv:       { name: 'UV Light', short: 'A chemical-free finishing stage for well water', url: '/systems/uv-light/' },
-    ro:       { name: 'WaterLux RO Pro50', short: 'Pure-tasting drinking water at your kitchen sink', url: '/systems/reverse-osmosis/' }
+    ro:       { name: 'WaterLux RO Pro50', short: '4-stage alkaline drinking water at your kitchen sink', url: '/systems/reverse-osmosis/' }
   };
 
   var SYMPTOMS = {

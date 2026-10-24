@@ -537,3 +537,7 @@ fieldset.field{border:0}
 .pgrid-two{grid-template-columns:repeat(2,1fr);max-width:820px}
 @media(max-width:560px){.pgrid-two{grid-template-columns:1fr}}
 .pgrid-two{margin-left:auto;margin-right:auto}
+.specs{width:100%;border-collapse:separate;border-spacing:0;margin-top:18px;font-size:15px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.specs th,.specs td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.specs th{width:40%;background:var(--ice);color:var(--navy);font-weight:700}
+.specs tr:last-child th,.specs tr:last-child td{border-bottom:0}
