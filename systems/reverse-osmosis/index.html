@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=f1a305d3">
+<link rel="stylesheet" href="/assets/styles.css?v=bdb58cf3">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"WaterLux WaterLux RO Pro50","brand":{"@type":"Brand","name":"WaterLux"},"description":"WaterLux RO Pro50 sits under your kitchen sink and gives you a dedicated faucet for drinking and cooking water. Four stages work in order: carbon catches sediment and chlorine, a reverse osmosis membrane holds back dissolved solids, an alkaline stage adds calcium back and raises the pH, and a final carbon stage polishes the taste. A built-in permeate pump makes the system faster and more efficient, so you get more water at better pressure with less going down the drain. It makes up to 50 gallons of drinking water a day, and we can also hook it up to your fridge so your fridge water and ice come from the same filtered supply."}</script>
 </head>
 <body>
@@ -104,19 +104,17 @@
 <div class="grad-top"></div>
 <h3 id="f-reverse-osmosis-title">Book your free water test</h3>
 <div class="form-rusty"><img class="avatar" src="/assets/images/russ-headshot.jpg" alt="Russ from WaterLux" width="80" height="80" loading="lazy"><span>Your test is done by <b>Russ</b>, with 23 years experience in water filtration.</span></div>
-<div class="row2">
-  <div class="field"><label for="f-reverse-osmosis-name">Full name</label><input id="f-reverse-osmosis-name" name="name" type="text" autocomplete="name" required></div>
-  <div class="field"><label for="f-reverse-osmosis-phone">Mobile phone</label><input id="f-reverse-osmosis-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-</div>
-<div class="field"><label for="f-reverse-osmosis-email">Email</label><input id="f-reverse-osmosis-email" name="email" type="email" autocomplete="email" required></div>
-<div class="field"><label for="f-reverse-osmosis-zip">ZIP code</label><input id="f-reverse-osmosis-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></div>
-<fieldset class="field"><legend>Your water comes from</legend>
+<p class="form-guide">Takes about 30 seconds. Just fill in each box below.</p>
+<div class="row2"><div class="field" data-field="name"><label for="f-reverse-osmosis-name">Your name</label><div class="inwrap"><input id="f-reverse-osmosis-name" name="name" type="text" placeholder="First and last name" required aria-describedby="f-reverse-osmosis-name-hint f-reverse-osmosis-name-err" autocomplete="name" autocapitalize="words" maxlength="80"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-reverse-osmosis-name-hint">So Russ knows who to ask for.</p><p class="ferr" id="f-reverse-osmosis-name-err" aria-live="polite"></p></div><div class="field" data-field="phone"><label for="f-reverse-osmosis-phone">Mobile number</label><div class="inwrap"><input id="f-reverse-osmosis-phone" name="phone" type="tel" placeholder="(636) 555-0123" required aria-describedby="f-reverse-osmosis-phone-hint f-reverse-osmosis-phone-err" autocomplete="tel-national" inputmode="tel" maxlength="14"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-reverse-osmosis-phone-hint">Russ will call or text to set a time.</p><p class="ferr" id="f-reverse-osmosis-phone-err" aria-live="polite"></p></div></div>
+<div class="field" data-field="email"><label for="f-reverse-osmosis-email">Email</label><div class="inwrap"><input id="f-reverse-osmosis-email" name="email" type="email" placeholder="name@example.com" required aria-describedby="f-reverse-osmosis-email-hint f-reverse-osmosis-email-err" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-reverse-osmosis-email-hint">We send your appointment details here. No spam.</p><p class="ferr" id="f-reverse-osmosis-email-err" aria-live="polite"></p></div>
+<div class="field" data-field="zip"><label for="f-reverse-osmosis-zip">ZIP code</label><div class="inwrap"><input id="f-reverse-osmosis-zip" name="zip" type="text" placeholder="63367" required aria-describedby="f-reverse-osmosis-zip-hint f-reverse-osmosis-zip-err" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]*" maxlength="5"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-reverse-osmosis-zip-hint">Lets us confirm you are in our service area.</p><p class="ferr" id="f-reverse-osmosis-zip-err" aria-live="polite"></p></div>
+<fieldset class="field"><legend>Where does your water come from?</legend>
   <div class="seg">
-    <label><input type="radio" name="water_source" value="city" checked><span>City</span></label>
-    <label><input type="radio" name="water_source" value="well"><span>Well</span></label>
+    <label><input type="radio" name="water_source" value="city" checked><span>City water</span></label>
+    <label><input type="radio" name="water_source" value="well"><span>Private well</span></label>
     <label><input type="radio" name="water_source" value="not-sure"><span>Not sure</span></label>
-  </div></fieldset>
-<fieldset class="field"><legend>Do you own or rent?</legend>
+  </div><p class="hint">Tip: if you get a water bill, it's city water.</p></fieldset>
+<fieldset class="field"><legend>Do you own or rent your home?</legend>
   <div class="seg two">
     <label><input type="radio" name="own_rent" value="own" checked><span>I own</span></label>
     <label><input type="radio" name="own_rent" value="rent"><span>I rent</span></label>
@@ -179,7 +177,7 @@
   </div>
 </footer>
 <div class="mobile-cta"><a class="call" href="tel:+16365389009">Call Now</a><a class="book" href="/free-water-test/">Book My Free Water Consultation</a></div>
-<script src="/assets/site.js?v=f1a305d3" defer></script>
-<script src="/assets/water-check.js?v=f1a305d3" defer></script>
+<script src="/assets/site.js?v=bdb58cf3" defer></script>
+<script src="/assets/water-check.js?v=bdb58cf3" defer></script>
 </body>
 </html>

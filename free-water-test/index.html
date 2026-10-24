@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=f1a305d3">
+<link rel="stylesheet" href="/assets/styles.css?v=bdb58cf3">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Free In-Home Water Test","provider":{"@id":"https://waterluxit.com/#business"},"areaServed":["St. Charles County, MO","St. Louis County, MO","City of St. Louis, MO","Franklin County, MO","Lincoln County, MO","St. Clair County, IL","Madison County, IL","Monroe County, IL"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 </head>
 <body>
@@ -70,19 +70,17 @@
 <h2 id="f-fwt-title">Book your free water test</h2>
 <p class="fsub">Next, you pick a time that works for you.</p>
 <div class="form-rusty"><img class="avatar" src="/assets/images/russ-headshot.jpg" alt="Russ from WaterLux" width="80" height="80" loading="lazy"><span>Your test is done by <b>Russ</b>, with 23 years experience in water filtration.</span></div>
-<div class="row2">
-  <div class="field"><label for="f-fwt-name">Full name</label><input id="f-fwt-name" name="name" type="text" autocomplete="name" required></div>
-  <div class="field"><label for="f-fwt-phone">Mobile phone</label><input id="f-fwt-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-</div>
-<div class="field"><label for="f-fwt-email">Email</label><input id="f-fwt-email" name="email" type="email" autocomplete="email" required></div>
-<div class="field"><label for="f-fwt-zip">ZIP code</label><input id="f-fwt-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></div>
-<fieldset class="field"><legend>Your water comes from</legend>
+<p class="form-guide">Takes about 30 seconds. Just fill in each box below.</p>
+<div class="row2"><div class="field" data-field="name"><label for="f-fwt-name">Your name</label><div class="inwrap"><input id="f-fwt-name" name="name" type="text" placeholder="First and last name" required aria-describedby="f-fwt-name-hint f-fwt-name-err" autocomplete="name" autocapitalize="words" maxlength="80"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-fwt-name-hint">So Russ knows who to ask for.</p><p class="ferr" id="f-fwt-name-err" aria-live="polite"></p></div><div class="field" data-field="phone"><label for="f-fwt-phone">Mobile number</label><div class="inwrap"><input id="f-fwt-phone" name="phone" type="tel" placeholder="(636) 555-0123" required aria-describedby="f-fwt-phone-hint f-fwt-phone-err" autocomplete="tel-national" inputmode="tel" maxlength="14"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-fwt-phone-hint">Russ will call or text to set a time.</p><p class="ferr" id="f-fwt-phone-err" aria-live="polite"></p></div></div>
+<div class="field" data-field="email"><label for="f-fwt-email">Email</label><div class="inwrap"><input id="f-fwt-email" name="email" type="email" placeholder="name@example.com" required aria-describedby="f-fwt-email-hint f-fwt-email-err" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-fwt-email-hint">We send your appointment details here. No spam.</p><p class="ferr" id="f-fwt-email-err" aria-live="polite"></p></div>
+<div class="field" data-field="zip"><label for="f-fwt-zip">ZIP code</label><div class="inwrap"><input id="f-fwt-zip" name="zip" type="text" placeholder="63367" required aria-describedby="f-fwt-zip-hint f-fwt-zip-err" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]*" maxlength="5"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-fwt-zip-hint">Lets us confirm you are in our service area.</p><p class="ferr" id="f-fwt-zip-err" aria-live="polite"></p></div>
+<fieldset class="field"><legend>Where does your water come from?</legend>
   <div class="seg">
-    <label><input type="radio" name="water_source" value="city" checked><span>City</span></label>
-    <label><input type="radio" name="water_source" value="well"><span>Well</span></label>
+    <label><input type="radio" name="water_source" value="city" checked><span>City water</span></label>
+    <label><input type="radio" name="water_source" value="well"><span>Private well</span></label>
     <label><input type="radio" name="water_source" value="not-sure"><span>Not sure</span></label>
-  </div></fieldset>
-<fieldset class="field"><legend>Do you own or rent?</legend>
+  </div><p class="hint">Tip: if you get a water bill, it's city water.</p></fieldset>
+<fieldset class="field"><legend>Do you own or rent your home?</legend>
   <div class="seg two">
     <label><input type="radio" name="own_rent" value="own" checked><span>I own</span></label>
     <label><input type="radio" name="own_rent" value="rent"><span>I rent</span></label>
@@ -198,7 +196,7 @@
   </div>
 </footer>
 <div class="mobile-cta"><a class="call" href="tel:+16365389009">Call Now</a><a class="book" href="/free-water-test/">Book My Free Water Consultation</a></div>
-<script src="/assets/site.js?v=f1a305d3" defer></script>
-<script src="/assets/water-check.js?v=f1a305d3" defer></script>
+<script src="/assets/site.js?v=bdb58cf3" defer></script>
+<script src="/assets/water-check.js?v=bdb58cf3" defer></script>
 </body>
 </html>

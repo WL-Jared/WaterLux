@@ -78,7 +78,25 @@
   /* 4. Lead forms */
   function digits(s) { return (s || '').replace(/\D/g, ''); }
   function validPhone(s) { var d = digits(s); return d.length === 10 || (d.length === 11 && d[0] === '1'); }
-  function validEmail(s) { return !s || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s); }
+  function validEmail(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s); }
+  function fmtPhone(v) {
+    var d = digits(v); if (d.length === 11 && d[0] === '1') d = d.slice(1); d = d.slice(0, 10);
+    if (d.length > 6) return '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6);
+    if (d.length > 3) return '(' + d.slice(0, 3) + ') ' + d.slice(3);
+    if (d.length) return '(' + d;
+    return '';
+  }
+  var DOMAIN_FIX = { 'gmial.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gmal.com': 'gmail.com', 'gnail.com': 'gmail.com', 'gmail.con': 'gmail.com',
+    'yaho.com': 'yahoo.com', 'yahoo.co': 'yahoo.com', 'yahoo.con': 'yahoo.com', 'hotmal.com': 'hotmail.com', 'hotmail.co': 'hotmail.com', 'outlok.com': 'outlook.com',
+    'icloud.co': 'icloud.com', 'iclod.com': 'icloud.com', 'aol.co': 'aol.com', 'charter.ner': 'charter.net', 'att.ner': 'att.net' };
+
+  /* Each rule returns '' when the box is good, or a friendly note on what to fix */
+  var RULES = {
+    name: function (v) { v = v.trim(); if (!v) return 'Please add your name.'; if (v.length < 2) return 'Please add your full name.'; return ''; },
+    phone: function (v) { if (!digits(v)) return 'Please add your mobile number.'; return validPhone(v) ? '' : 'Phone numbers need 10 digits, like (636) 555-0123.'; },
+    email: function (v) { v = v.trim(); if (!v) return 'Please add your email.'; return validEmail(v) ? '' : 'Please check your email. It should look like name@example.com.'; },
+    zip: function (v) { v = v.trim(); if (!v) return 'Please add your ZIP code.'; return /^\d{5}$/.test(v) ? '' : 'ZIP codes are 5 numbers, like 63367.'; }
+  };
 
   document.querySelectorAll('form.lead-form').forEach(function (form) {
     var started = Date.now();
@@ -86,27 +104,76 @@
     var btn = form.querySelector('button[type="submit"]');
     var btnText = btn ? btn.textContent : '';
 
+    function wrap(input) { return input && input.closest('.field'); }
+    function setState(input, err) {
+      var w = wrap(input); if (!w) return;
+      var e = w.querySelector('.ferr');
+      if (err) { input.setAttribute('aria-invalid', 'true'); w.classList.add('has-err'); w.classList.remove('is-ok'); if (e) e.textContent = err; }
+      else { input.removeAttribute('aria-invalid'); w.classList.remove('has-err'); if (e) e.textContent = ''; w.classList.toggle('is-ok', !!input.value.trim() && !w.querySelector('.email-fix')); }
+    }
+    function check(input, strict) {
+      var rule = RULES[input.name]; if (!rule) return '';
+      var err = rule(input.value);
+      if (!strict && !input.value.trim()) { setState(input, ''); return err; }  // don't scold an untouched box
+      setState(input, err);
+      return err;
+    }
+    function suggestEmail(input) {
+      var w = wrap(input); if (!w) return;
+      var old = w.querySelector('.email-fix'); if (old) old.remove();
+      var v = input.value.trim(), at = v.lastIndexOf('@'); if (at < 1) return;
+      var fix = DOMAIN_FIX[v.slice(at + 1).toLowerCase()]; if (!fix) return;
+      var better = v.slice(0, at + 1) + fix;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'email-fix'; b.innerHTML = 'Did you mean <b></b>? Tap to fix.';
+      b.querySelector('b').textContent = better;
+      b.addEventListener('click', function () { input.value = better; b.remove(); check(input, true); });
+      w.appendChild(b);
+      w.classList.remove('is-ok');
+    }
     function fail(text, field) {
       if (msg) { msg.textContent = text; msg.className = 'form-msg err'; }
-      if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+      if (field) field.focus();
     }
+
     form.addEventListener('input', function (e) {
-      if (e.target.getAttribute('aria-invalid')) e.target.removeAttribute('aria-invalid');
+      var t = e.target;
+      if (t.name === 'phone') {
+        var pos = t.selectionStart == null ? t.value.length : t.selectionStart;
+        var before = digits(t.value.slice(0, pos)).length;   // digits left of the cursor
+        var f = fmtPhone(t.value);
+        if (f !== t.value) {
+          t.value = f;
+          var i = 0, seen = 0;
+          while (i < f.length && seen < before) { if (/\d/.test(f[i])) seen++; i++; }
+          try { t.setSelectionRange(i, i); } catch (x) {}
+        }
+      }
+      if (t.name === 'zip') { var z = digits(t.value).slice(0, 5); if (z !== t.value) t.value = z; }
+      if (!RULES[t.name]) return;
+      // While typing: clear the note as soon as it's fixed, and show the check mark when complete
+      if (!RULES[t.name](t.value)) setState(t, '');
+      else if (wrap(t).classList.contains('has-err')) check(t, true);
+      else wrap(t).classList.remove('is-ok');
+      if (msg && msg.classList.contains('err')) { msg.textContent = ''; msg.className = 'form-msg'; }
+    });
+    form.addEventListener('focusout', function (e) {
+      if (RULES[e.target.name]) { check(e.target, false); if (e.target.name === 'email') suggestEmail(e.target); }
     });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (msg) { msg.textContent = ''; msg.className = 'form-msg'; }
       var f = form.elements;
-      var name = (f.name && f.name.value || '').trim();
-      var phone = (f.phone && f.phone.value || '').trim();
+      var first = null, count = 0;
+      ['name', 'phone', 'email', 'zip'].forEach(function (k) {
+        var el = f[k]; if (!el || !el.tagName) return;
+        if (check(el, true)) { count++; if (!first) first = el; }
+      });
+      if (first) return fail(count === 1 ? 'Almost there. Please fix the box marked in red.' : 'Almost there. Please fix the ' + count + ' boxes marked in red.', first);
+      var name = f.name.value.trim();
+      var phone = f.phone.value.trim();
       var email = (f.email && f.email.value || '').trim();
-
-      if (!name) return fail('Please add your name.', f.name);
-      if (!validPhone(phone)) return fail('Please enter a 10 digit phone number.', f.phone);
-      if (f.email && f.email.required && !email) return fail('Please add your email.', f.email);
-      if (!validEmail(email)) return fail('That email address looks off. Please check it.', f.email);
-      if (f.zip && f.zip.required && !/^\d{5}$/.test(f.zip.value.trim())) return fail('Please enter a 5 digit ZIP code.', f.zip);
 
       var consentBox = f.sms_consent;
       var consentText = form.querySelector('[data-consent-text]');

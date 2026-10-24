@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=f1a305d3">
+<link rel="stylesheet" href="/assets/styles.css?v=bdb58cf3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -71,12 +71,10 @@
 <div class="grad-top"></div>
 <h2 id="f-contact-title">Send us a message</h2>
 <p class="fsub">We will get back to you quickly.</p>
-<div class="row2">
-  <div class="field"><label for="f-contact-name">Full name</label><input id="f-contact-name" name="name" type="text" autocomplete="name" required></div>
-  <div class="field"><label for="f-contact-phone">Mobile phone</label><input id="f-contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-</div>
-<div class="field"><label for="f-contact-email">Email</label><input id="f-contact-email" name="email" type="email" autocomplete="email" required></div>
-<div class="field"><label for="f-contact-msg">How can we help? <span class="opt">(optional)</span></label><textarea id="f-contact-msg" name="message"></textarea></div>
+<p class="form-guide">Takes about 30 seconds. Just fill in each box below.</p>
+<div class="row2"><div class="field" data-field="name"><label for="f-contact-name">Your name</label><div class="inwrap"><input id="f-contact-name" name="name" type="text" placeholder="First and last name" required aria-describedby="f-contact-name-hint f-contact-name-err" autocomplete="name" autocapitalize="words" maxlength="80"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-contact-name-hint">So Russ knows who to ask for.</p><p class="ferr" id="f-contact-name-err" aria-live="polite"></p></div><div class="field" data-field="phone"><label for="f-contact-phone">Mobile number</label><div class="inwrap"><input id="f-contact-phone" name="phone" type="tel" placeholder="(636) 555-0123" required aria-describedby="f-contact-phone-hint f-contact-phone-err" autocomplete="tel-national" inputmode="tel" maxlength="14"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-contact-phone-hint">Russ will call or text to set a time.</p><p class="ferr" id="f-contact-phone-err" aria-live="polite"></p></div></div>
+<div class="field" data-field="email"><label for="f-contact-email">Email</label><div class="inwrap"><input id="f-contact-email" name="email" type="email" placeholder="name@example.com" required aria-describedby="f-contact-email-hint f-contact-email-err" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false"><span class="ok-mark" aria-hidden="true"></span></div><p class="hint" id="f-contact-email-hint">So we can reply to your message.</p><p class="ferr" id="f-contact-email-err" aria-live="polite"></p></div>
+<div class="field"><label for="f-contact-msg">How can we help? <span class="opt">(optional)</span></label><p class="hint" style="margin:-2px 0 6px">A question, a problem you are noticing, or a good time to reach you.</p><textarea id="f-contact-msg" name="message"></textarea></div>
 <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 <label class="consent"><input type="checkbox" name="sms_consent" value="yes"><span data-consent-text>I agree to receive text messages from WaterLux about my request and service, including scheduling, reminders and updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</span></label>
 <p class="consent" style="margin-top:6px;cursor:default"><span>See our <a href="/privacy/">Privacy Policy</a> and <a href="/sms-terms/">SMS Terms</a>.</span></p>
@@ -135,7 +133,7 @@
   </div>
 </footer>
 <div class="mobile-cta"><a class="call" href="tel:+16365389009">Call Now</a><a class="book" href="/free-water-test/">Book My Free Water Consultation</a></div>
-<script src="/assets/site.js?v=f1a305d3" defer></script>
-<script src="/assets/water-check.js?v=f1a305d3" defer></script>
+<script src="/assets/site.js?v=bdb58cf3" defer></script>
+<script src="/assets/water-check.js?v=bdb58cf3" defer></script>
 </body>
 </html>

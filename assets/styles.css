@@ -574,3 +574,21 @@ img{height:auto}
 .sys-photo img{width:100%;height:auto;display:block}
 .pgrid-two .pcard-img{height:270px}
 .pcard-img img.is-photo{object-position:center 12%}
+/* Guided form fields */
+.form-guide{font-size:14px;color:var(--muted);margin:10px 0 0}
+.field .hint{font-size:12.5px;color:var(--muted);margin:5px 0 0;line-height:1.4}
+.field .ferr{font-size:13px;color:#B03A2E;font-weight:600;margin:5px 0 0;line-height:1.4}
+.field .ferr:empty{display:none}
+.field.has-err .hint{display:none}
+.field input::placeholder,.field textarea::placeholder{color:#9AAFC0;opacity:1}
+.inwrap{position:relative}
+.inwrap input{padding-right:38px}
+.ok-mark{position:absolute;right:12px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:#1E9E61;opacity:0;transform:scale(.6);transition:opacity .15s,transform .15s;pointer-events:none}
+.ok-mark::after{content:"";position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.field.is-ok .ok-mark{opacity:1;transform:scale(1)}
+.field.is-ok input{border-color:#7CC3A0}
+.field.has-err input{border-color:#C0392B;background:#FFF6F5}
+.email-fix{display:block;margin-top:6px;background:var(--ice);border:0;border-radius:8px;padding:7px 10px;font:inherit;font-size:13px;color:var(--navy);cursor:pointer;text-align:left}
+.email-fix b{color:var(--blue)}
+.seg span{padding:11px 6px}
+@media(max-width:420px){.seg span{font-size:13.5px;padding:11px 3px;white-space:nowrap}}
