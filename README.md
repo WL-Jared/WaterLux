@@ -199,7 +199,7 @@ The header and footer are repeated in each page file. If you change a nav link o
 
 ## Still open (shown on the site in [brackets] or marked EDIT:)
 
-- Days of operation (hours show as 8:00 AM to 5:00 PM CST, [confirm days])
+- Days of operation (done: Monday to Friday, 8:00 AM to 5:00 PM CST)
 - Financing provider and terms ([confirm financing terms])
 - What the free water test measures
 - Install time still about 3 hours?
