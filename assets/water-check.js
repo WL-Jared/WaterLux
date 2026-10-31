@@ -16,12 +16,12 @@
   'use strict';
 
   var SYSTEMS = {
-    complete: { name: 'WaterLux Complete', short: 'Softening and carbon filtration in one tank, custom built for your family', url: '/complete-system/' },
+    complete: { name: 'WaterLux Complete', short: 'Softening and carbon filtration in one tank, custom built for your family', url: '/complete-system/', img: '/assets/images/systems/complete-system.jpg' },
     softener: { name: 'WaterLux Soft', short: 'Removes the hard minerals behind spots and scale', url: '/systems/water-softener/' },
     carbon:   { name: 'WaterLux Carbon', short: 'Whole-home filtration for chlorine taste and smell', url: '/systems/carbon-tower/' },
     air:      { name: 'Air Injection System', short: 'Removes iron, manganese and rotten egg smell', url: '/systems/air-injection/' },
-    uv:       { name: 'WaterLux UV Pro9', short: 'Whole-home UV disinfection for well water, with nothing added', url: '/systems/uv-light/' },
-    ro:       { name: 'WaterLux RO Pro50', short: '4-stage alkaline drinking water at your kitchen sink', url: '/systems/reverse-osmosis/' }
+    uv:       { name: 'WaterLux UV Pro9', short: 'Whole-home UV disinfection for well water, with nothing added', url: '/systems/uv-light/', img: '/assets/images/systems/uv-light.jpg' },
+    ro:       { name: 'WaterLux RO Pro50', short: '4-stage alkaline drinking water at your kitchen sink', url: '/systems/reverse-osmosis/', img: '/assets/images/systems/reverse-osmosis.jpg' }
   };
 
   var SYMPTOMS = {
@@ -113,7 +113,7 @@
         html += '<div class="wc-recs">' + r.keys.map(function (k, i) {
           var s = SYSTEMS[k];
           var why = (r.reasons[k] || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
-          return '<a class="wc-rec' + (i === 0 ? ' top' : '') + '" href="' + s.url + '">' + (i === 0 ? '<span class="wc-badge">Best match</span>' : '') +
+          return '<a class="wc-rec' + (i === 0 ? ' top' : '') + '" href="' + s.url + '">' + (s.img ? '<span class="wc-rec-img"><img src="' + s.img + '" alt="' + esc(s.name) + '" loading="lazy"></span>' : '') + (i === 0 ? '<span class="wc-badge">Best match</span>' : '') +
             '<b>' + esc(s.name) + '</b><span>' + esc(s.short) + '</span>' + (why ? '<small>Because you noticed:</small><ul>' + why + '</ul>' : '') + '<em>Learn more about this system</em></a>';
         }).join('') + '</div>';
         var whys = real.map(function (p) { return SYMPTOMS[p] && SYMPTOMS[p].why; }).filter(Boolean);
