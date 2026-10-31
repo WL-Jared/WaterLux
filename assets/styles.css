@@ -596,3 +596,60 @@ img{height:auto}
 .pcard-img img.is-photo{object-position:center 35%}
 .pgrid-one .pcard-img{height:270px}
 .pcard-img img.is-photo{object-position:center 15%}
+
+/* =====================================================================
+   Visual polish: brand gradients on blue sections, text depth, buttons
+   ===================================================================== */
+:root{
+  --grad-navy:radial-gradient(1200px 500px at 85% -10%,rgba(36,198,243,.22) 0%,rgba(36,198,243,0) 60%),
+              radial-gradient(900px 500px at -10% 110%,rgba(8,105,200,.35) 0%,rgba(8,105,200,0) 60%),
+              linear-gradient(135deg,#061A3F 0%,#0B2A4A 45%,#0D447E 100%);
+  --grad-ice:radial-gradient(900px 400px at 100% 0%,rgba(49,166,230,.18) 0%,rgba(49,166,230,0) 60%),
+             linear-gradient(160deg,#F2FAFF 0%,#DFF4FF 55%,#CDEBFB 100%);
+  --grad-btn:linear-gradient(135deg,#0869C8 0%,#146FB8 45%,#1E9BE0 100%);
+  --grad-btn-hover:linear-gradient(135deg,#075BAE 0%,#0F5C9B 45%,#178AD0 100%);
+}
+
+/* Dark blue sections */
+.info-bar,.bg-navy,.band,.local-card,.site-foot{background:var(--grad-navy)}
+.cmp th{background:linear-gradient(135deg,#071F50 0%,#0B2A4A 60%,#0D447E 100%)}
+.photo-cost{background:
+  linear-gradient(135deg,rgba(6,26,63,.93) 0%,rgba(11,42,74,.9) 50%,rgba(13,68,126,.86) 100%),
+  url("/assets/images/bg/showerhead.jpg") center/cover no-repeat,
+  var(--grad-navy)}
+.photo-band{background:
+  linear-gradient(100deg,rgba(6,26,63,.96) 0%,rgba(11,42,74,.88) 50%,rgba(13,68,126,.72) 100%),
+  url("/assets/images/bg/home-exterior.jpg") center/cover no-repeat,
+  var(--grad-navy)}
+
+/* Light blue sections */
+.bg-ice,.page-hero{background:var(--grad-ice)}
+.card.ice,.help-strip > div,.wc-next,.sizes{background:linear-gradient(145deg,#EEF8FF 0%,#DCF1FD 100%)}
+.form-rusty{background:linear-gradient(120deg,#E9F6FF 0%,#D6EEFC 100%)}
+
+/* Text depth: dark sections */
+.info-bar b,.bg-navy h2,.bg-navy h3,.band h2,.local-card h2,.local-card h3,.photo-cost h2,.photo-band h2{
+  text-shadow:0 2px 4px rgba(0,0,0,.25),0 8px 24px rgba(0,10,30,.45)}
+.bg-navy .sub,.bg-navy p,.band p,.photo-band p{text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.bg-navy .kicker,.band .kicker,.photo-band .kicker{text-shadow:0 0 18px rgba(49,166,230,.55)}
+
+/* Text depth: light sections (soft blue lift on headings) */
+h1,h2{text-shadow:0 1px 0 rgba(255,255,255,.6),0 6px 18px rgba(20,111,184,.16)}
+.hero h1,.page-hero h1{text-shadow:0 1px 0 rgba(255,255,255,.7),0 10px 28px rgba(11,42,74,.18)}
+.hero h1 .b{background:linear-gradient(90deg,#0869C8 0%,#24A9EC 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{text-shadow:0 0 14px rgba(49,166,230,.25)}
+
+/* Buttons: brand gradient with a soft glow */
+.btn-blue,.nav .btn,.mobile-cta .book{background:var(--grad-btn);box-shadow:0 8px 20px -10px rgba(8,105,200,.75),inset 0 1px 0 rgba(255,255,255,.18);text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.btn-blue:hover,.nav .btn:hover{background:var(--grad-btn-hover);transform:translateY(-1px);box-shadow:0 12px 26px -12px rgba(8,105,200,.85)}
+.btn-navy{background:linear-gradient(135deg,#061A3F 0%,#0B2A4A 55%,#123A63 100%);box-shadow:0 8px 20px -12px rgba(6,26,63,.8)}
+.btn{transition:transform .15s,box-shadow .15s,background .15s}
+.mobile-cta .call{background:linear-gradient(135deg,#061A3F 0%,#0B2A4A 100%)}
+
+/* Small accents */
+.num,.info-icon,.wc-badge{background:var(--grad-btn);box-shadow:0 6px 14px -8px rgba(8,105,200,.8)}
+.num{background:linear-gradient(135deg,#071F50 0%,#0869C8 100%)}
+.form-card,.wc,.pcard,.card{box-shadow:0 22px 45px -28px rgba(11,42,74,.45)}
+/* keep text inside white cards crisp */
+.cost h3,.cost p,.bg-navy .card h3,.bg-navy .card p,.form-card h2,.form-card h3,.pcard b,.card h3{text-shadow:none}
+.info-bar{background:radial-gradient(700px 220px at 85% 120%,rgba(36,198,243,.22) 0%,rgba(36,198,243,0) 70%),linear-gradient(180deg,#0B2A4A 0%,#0B2A4A 18%,#0C3563 65%,#0D447E 100%)}
