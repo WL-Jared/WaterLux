@@ -29,12 +29,12 @@
     scale:      { label: 'Scale on faucets, showerheads or fixtures', systems: ['complete'], why: 'White, crusty scale is hardness (calcium and magnesium) building up.' },
     chlorine:   { label: 'Chlorine or bleach smell', systems: ['complete'], why: 'That pool smell is the chlorine or chloramines used to treat city water. The carbon in WaterLux Complete filters it out.' },
     egg:        { label: 'Rotten egg smell', systems: [], why: 'A rotten egg smell is hydrogen sulfide gas, most common in well water.',
-                  next: "Russ will test for sulfur at your free consultation and recommend the right setup for your home." },
+                  next: "We will test for sulfur at your free consultation and recommend the right setup for your home." },
     odor:       { label: 'Another unusual odor (musty, earthy, metallic)', systems: ['complete'], why: 'Musty and earthy odors come from compounds that carbon filters out. Metallic odors come from iron.' },
     orange:     { label: 'Orange or reddish-brown stains in sinks or toilets', systems: [], why: 'Orange and rust-colored stains are a classic sign of iron in your water.',
-                  next: "Russ will test for iron and manganese at your free consultation and recommend the right setup for your home." },
+                  next: "We will test for iron and manganese at your free consultation and recommend the right setup for your home." },
     black:      { label: 'Black or dark gray stains', systems: [], why: 'Dark stains are manganese, which often shows up alongside iron.',
-                  next: "Russ will test for iron and manganese at your free consultation and recommend the right setup for your home." },
+                  next: "We will test for iron and manganese at your free consultation and recommend the right setup for your home." },
     bluegreen:  { label: 'Blue-green stains', systems: [], why: 'Blue-green stains come from acidic water reacting with copper pipes.',
                   next: "We'll test your water's pH at your free test. If your pipes are affected, a plumber may also need to take a look." },
     dryskin:    { label: 'Extremely dry skin or hair', systems: ['complete'], why: 'Hard minerals and chlorine in your water are what leave skin and hair feeling dry.' },
@@ -62,7 +62,7 @@
     if (source === 'well') {
       score.uv = (score.uv || 0) + 1;
       (reasons.uv = reasons.uv || []).push('Private well (UV treats every gallon, with no chemicals)');
-      nexts.push('Well water is different in every home. Russ will test yours at your free consultation and recommend the right setup.');
+      nexts.push('Well water is different in every home. We will test yours at your free consultation and recommend the right setup.');
     }
     if (source === 'city' && score.air && !picked.some(function (p) { return p === 'egg' || p === 'orange' || p === 'black'; })) {
       delete score.air;
