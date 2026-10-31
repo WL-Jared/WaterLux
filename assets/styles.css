@@ -653,3 +653,24 @@ h1,h2{text-shadow:0 1px 0 rgba(255,255,255,.6),0 6px 18px rgba(20,111,184,.16)}
 /* keep text inside white cards crisp */
 .cost h3,.cost p,.bg-navy .card h3,.bg-navy .card p,.form-card h2,.form-card h3,.pcard b,.card h3{text-shadow:none}
 .info-bar{background:radial-gradient(700px 220px at 85% 120%,rgba(36,198,243,.22) 0%,rgba(36,198,243,0) 70%),linear-gradient(180deg,#0B2A4A 0%,#0B2A4A 18%,#0C3563 65%,#0D447E 100%)}
+
+/* =====================================================================
+   Crisp, readable text (replaces the soft glows above)
+   ===================================================================== */
+/* Light sections: no blur on headings or labels */
+h1,h2,.hero h1,.page-hero h1,.kicker,.bg-navy .kicker,.band .kicker,.photo-band .kicker{text-shadow:none}
+/* Hero highlight: solid brand blue, sharper than gradient-filled text */
+.hero h1 .b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--blue)}
+/* Dark sections: one tight shadow for edge definition, no haze */
+.info-bar b,.bg-navy h2,.bg-navy h3,.band h2,.local-card h2,.local-card h3,.photo-cost h2,.photo-band h2{text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.bg-navy .sub,.bg-navy p,.band p,.photo-band p,.info-bar small{text-shadow:none}
+/* Brighter body text on dark blue for contrast */
+.bg-navy .sub,.bg-navy p,.band p,.photo-band p,.info-bar small,.site-foot,.band .cta-sub,.bg-navy .cta-sub{color:#E3EEF8}
+.bg-navy .kicker,.band .kicker,.photo-band .kicker{color:#5CC3F5}
+/* Smoother rendering of light-on-dark text */
+.info-bar,.bg-navy,.band,.local-card,.site-foot,.photo-cost,.photo-band,.btn{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+/* Buttons: crisp label, keep the glow on the button only */
+.btn-blue,.nav .btn,.mobile-cta .book{text-shadow:none;font-weight:700}
+/* Slightly darker gray for small helper text on light backgrounds */
+.cta-sub,.field .hint,.form-guide{color:#4A5866}
+.bg-navy .cost h3,.photo-cost .cost h3,.bg-navy .card h3,.cost h3,.cost p,.form-card h2,.form-card h3,.pcard b,.card h3{text-shadow:none}
