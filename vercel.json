@@ -35,7 +35,7 @@
   ],
   "redirects": [
     {
-      "source": "/systems/:slug(carbon-tower|water-softener|air-injection|uv-light)",
+      "source": "/systems/:slug(carbon-tower|water-softener|air-injection)",
       "destination": "/systems/",
       "permanent": false
     }

@@ -248,6 +248,16 @@
     }
   }
 
+  /* Product photo gallery: tap a thumbnail to show it large */
+  document.querySelectorAll('[data-gallery]').forEach(function (g) {
+    var main = g.querySelector('.g-main img');
+    g.addEventListener('click', function (e) {
+      var t = e.target.closest('.g-thumb'); if (!t || !main) return;
+      main.src = t.getAttribute('data-src'); main.alt = t.getAttribute('data-alt') || '';
+      g.querySelectorAll('.g-thumb').forEach(function (x) { x.classList.toggle('on', x === t); });
+    });
+  });
+
   /* Footer year */
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();

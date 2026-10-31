@@ -20,7 +20,7 @@
     softener: { name: 'WaterLux Soft', short: 'Removes the hard minerals behind spots and scale', url: '/systems/water-softener/' },
     carbon:   { name: 'WaterLux Carbon', short: 'Whole-home filtration for chlorine taste and smell', url: '/systems/carbon-tower/' },
     air:      { name: 'Air Injection System', short: 'Removes iron, manganese and rotten egg smell', url: '/systems/air-injection/' },
-    uv:       { name: 'UV Light', short: 'A chemical-free finishing stage for well water', url: '/systems/uv-light/' },
+    uv:       { name: 'WaterLux UV Pro9', short: 'Whole-home UV stage for well water, with nothing added', url: '/systems/uv-light/' },
     ro:       { name: 'WaterLux RO Pro50', short: '4-stage alkaline drinking water at your kitchen sink', url: '/systems/reverse-osmosis/' }
   };
 
@@ -60,6 +60,8 @@
     });
     /* Water source nudges */
     if (source === 'well') {
+      score.uv = (score.uv || 0) + 1;
+      (reasons.uv = reasons.uv || []).push('Private well (a final UV stage for well water)');
       nexts.push('Well water is different in every home. Russ will test yours at your free consultation and recommend the right setup.');
     }
     if (source === 'city' && score.air && !picked.some(function (p) { return p === 'egg' || p === 'orange' || p === 'black'; })) {
