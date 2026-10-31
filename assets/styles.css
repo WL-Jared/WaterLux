@@ -695,3 +695,12 @@ h1,h2,.hero h1,.page-hero h1,.kicker,.bg-navy .kicker,.band .kicker,.photo-band 
 @media(max-width:900px){.split > div:has(> .gallery){order:-1;margin-bottom:8px}}
 .pgrid .pcard-img{height:230px}
 .pgrid-two .pcard-img{height:270px}
+/* UV product page sections */
+.why-uv .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:none}
+.why-uv .card h3{color:#fff}
+.why-uv .card p{color:#E3EEF8}
+.targets{background:linear-gradient(145deg,#EEF8FF 0%,#DCF1FD 100%);border-radius:var(--radius);padding:18px 20px;margin:20px 0}
+.targets h3{margin-top:0}
+.targets .checks li{border-color:#C6E3F5}
+.tnote{font-size:13px!important;color:#4A5866!important;margin-top:10px!important}
+.card.ben h3{font-size:18px}
