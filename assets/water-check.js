@@ -20,7 +20,7 @@
     softener: { name: 'WaterLux Soft', short: 'Removes the hard minerals behind spots and scale', url: '/systems/water-softener/' },
     carbon:   { name: 'WaterLux Carbon', short: 'Whole-home filtration for chlorine taste and smell', url: '/systems/carbon-tower/' },
     air:      { name: 'Air Injection System', short: 'Removes iron, manganese and rotten egg smell', url: '/systems/air-injection/' },
-    uv:       { name: 'WaterLux UV VH200', short: 'Whole-home UV disinfection for well water, with nothing added', url: '/systems/uv-light/', img: '/assets/images/systems/uv-light.jpg' },
+    uv:       { name: 'WaterLux UV VH200', short: 'Whole-home UV disinfection for city or well water, with nothing added', url: '/systems/uv-light/', img: '/assets/images/systems/uv-light.jpg' },
     ro:       { name: 'WaterLux RO Pro50', short: '4-stage alkaline drinking water at your kitchen sink', url: '/systems/reverse-osmosis/', img: '/assets/images/systems/reverse-osmosis.jpg' }
   };
 
